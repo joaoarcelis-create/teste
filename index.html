@@ -3,92 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comandos Anfíbios | Marinha do Brasil</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Seminário da Resistência Católica</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Estilos Gerais */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #1a1a1a; color: #ffffff; line-height: 1.6; }
-
-        /* Cabeçalho */
-        header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1579913741676-b0009959924d?auto=format&fit=crop&q=80&w=1600') center/cover;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border-bottom: 4px solid #c5a059; /* Dourado Militar */
+        /* Reset básico de margens e padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        header h1 { font-size: 3.5rem; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 10px; }
-        header p { font-size: 1.2rem; color: #c5a059; font-weight: bold; text-transform: uppercase; }
+        /* Corpo da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            padding-top: 20px;
+        }
 
-        /* Seções */
-        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
-        
-        section { margin-bottom: 60px; }
-        h2 { border-left: 5px solid #c5a059; padding-left: 15px; margin-bottom: 30px; text-transform: uppercase; }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-        /* Grid de Cards */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: #262626; padding: 25px; border-radius: 5px; border-bottom: 3px solid transparent; transition: 0.3s; }
-        .card:hover { border-color: #c5a059; transform: translateY(-5px); }
-        .card h3 { color: #c5a059; margin-bottom: 15px; }
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
 
-        /* Rodapé */
-        footer { background: #0a0a0a; text-align: center; padding: 30px; font-size: 0.9rem; border-top: 1px solid #333; }
-        .motto { font-style: italic; color: #c5a059; margin-bottom: 10px; display: block; }
+        .intro {
+            margin: 30px auto;
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
 
-        /* Responsividade */
-        @media (max-width: 768px) { header h1 { font-size: 2rem; } }
+        .intro h2 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .seminary-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .seminary-info div {
+            width: 48%;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #2ecc71;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Cabeçalho -->
     <header>
-        <h1>Comandos Anfíbios</h1>
-        <p>Marinha do Brasil - Corpo de Fuzileiros Navais</p>
+        <h1>Seminário da Resistência Católica</h1>
+        <p>Formação e Vocação Sacerdotal Tradicional</p>
     </header>
 
-    <div class="container">
-        
-        <section id="sobre">
-            <h2>Quem Somos</h2>
-            <p>O Batalhão de Operações Especiais de Fuzileiros Navais, conhecido como <strong>Comandos Anfíbios (ComAnf)</strong>, é a unidade de elite do Corpo de Fuzileiros Navais da Marinha do Brasil. Somos treinados para atuar em ambientes hostis, realizar infiltrações terrestres e aquáticas, e cumprir missões de alto risco em qualquer parte do globo.</p>
-        </section>
+    <!-- Introdução ao seminário -->
+    <section class="intro">
+        <h2>Quem Gostaria de Ser Padre?</h2>
+        <p>
+            O Seminário da Resistência Católica, sob a direção do Reverendo Padre João Eduardo, oferece uma formação sacerdotal sólida, fiel às tradições da Igreja Católica. Nosso seminário se dedica à preservação e ao ensino da fé católica conforme transmitida pelos nossos antepassados, resistindo às inovações do Concílio Vaticano II, que alteraram aspectos fundamentais da liturgia e da vida religiosa.
+        </p>
+        <p>
+            Se você sente o chamado de Deus para a vida sacerdotal, venha fazer parte dessa missão. O seminário oferece uma formação profunda e alinhada com a tradição da Igreja, com a devida seriedade e respeito às normas que garantem a continuidade da fé.
+        </p>
+        <div class="button-container">
+            <a href="#contact" class="button">Entre em Contato Conosco</a>
+        </div>
+    </section>
 
-        <section id="especialidades">
-            <h2>Nossas Especialidades</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Operações Especiais</h3>
-                    <p>Ações diretas e reconhecimento especial em territórios hostis ou negados.</p>
-                </div>
-                <div class="card">
-                    <h3>Guerra Anfíbia</h3>
-                    <p>Especialistas em projeção de poder de terra vindo do mar, dominando a zona costeira.</p>
-                </div>
-                <div class="card">
-                    <h3>Infiltração e Exfiltração</h3>
-                    <p>Domínio de técnicas de salto livre (HALO/HAHO), mergulho de combate e operações ribeirinhas.</p>
-                </div>
-            </div>
-        </section>
+    <!-- Informações sobre o seminário -->
+    <section class="seminary-info">
+        <div>
+            <h3>Seminário Tradicional</h3>
+            <p>
+                Nosso seminário segue a doutrina e práticas anteriores ao Concílio Vaticano II, preservando o rito latino tradicional e a catequese clássica. Aqui, os seminaristas aprendem a viver a vida sacerdotal de acordo com a verdadeira Tradição da Igreja.
+            </p>
+        </div>
+        <div>
+            <h3>Seminário da Resistência Católica</h3>
+            <p>
+                Sob a orientação do Reverendo Padre João Eduardo, o seminário propõe uma educação robusta, com ênfase na preservação da fé imutável, com respeito às doutrinas e práticas que sempre marcaram a Igreja antes das mudanças impostas pelo Concílio Vaticano II.
+            </p>
+        </div>
+    </section>
 
-        <section id="valores">
-            <h2>Valores e Ética</h2>
-            <blockquote>
-                "O sacrifício é o dever, a vitória é o destino."
-            </blockquote>
-            <p style="margin-top: 20px;">A formação de um ComAnf exige disciplina férrea, resistência física inabalável e o controle emocional necessário para tomar decisões críticas sob fogo.</p>
-        </section>
-
-    </div>
-
+    <!-- Rodapé -->
     <footer>
-        <span class="motto">"AD SUMUS" - Aqui Estamos!</span>
-        <p>&copy; 2026 - Site Informativo sobre a Elite da Marinha Brasileira</p>
+        <p>Seminário da Resistência Católica | Todos os Direitos Reservados</p>
     </footer>
 
 </body>
