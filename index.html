@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITA · Instituto Tecnológico de Aeronáutica (Área Militar)</title>
+    <title>ITA · Teste de Vocação Militar</title>
     <style>
         /* === CSS EMBUTIDO — ESTILO MILITAR/TÉCNICO === */
         * {
@@ -35,7 +35,7 @@
 
         /* cabeçalho com brasão da aeronáutica */
         .header-ita {
-            background: #0a3b2e; /* verde militar */
+            background: #0a3b2e;
             background-image: repeating-linear-gradient(45deg, rgba(255,215,0,0.1) 0px, rgba(255,215,0,0.1) 10px, transparent 10px, transparent 20px);
             padding: 25px 35px;
             color: white;
@@ -117,7 +117,8 @@
         #tab2:checked ~ .tab-container .tab[for="tab2"],
         #tab3:checked ~ .tab-container .tab[for="tab3"],
         #tab4:checked ~ .tab-container .tab[for="tab4"],
-        #tab5:checked ~ .tab-container .tab[for="tab5"] {
+        #tab5:checked ~ .tab-container .tab[for="tab5"],
+        #tab6:checked ~ .tab-container .tab[for="tab6"] {
             border-bottom: 5px solid #ffb347;
             background: #1f4a2c;
             color: white;
@@ -128,7 +129,8 @@
         #tab2:checked ~ .contents #content2,
         #tab3:checked ~ .contents #content3,
         #tab4:checked ~ .contents #content4,
-        #tab5:checked ~ .contents #content5 { display: block; }
+        #tab5:checked ~ .contents #content5,
+        #tab6:checked ~ .contents #content6 { display: block; }
 
         /* estilo dos conteúdos */
         .tab-content h3 {
@@ -221,6 +223,7 @@
             border: 3px solid #f0e68c;
             transition: 0.2s;
             text-transform: uppercase;
+            cursor: pointer;
         }
         .btn-militar:hover {
             background: #ffd700;
@@ -248,7 +251,6 @@
             margin-right: 10px;
         }
 
-        /* ícones e destaques */
         .mil-flag {
             background: #0f3b1f;
             color: white;
@@ -256,6 +258,102 @@
             border-radius: 10px;
             border-left: 10px solid #daa520;
             margin: 20px 0;
+        }
+
+        /* Estilos do teste vocacional */
+        .teste-container {
+            background: #e8f0e8;
+            border-radius: 30px;
+            padding: 30px;
+            border: 3px solid #b8860b;
+        }
+
+        .pergunta {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .pergunta h4 {
+            color: #0a3b2e;
+            border-bottom: 2px solid #daa520;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .opcoes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .opcao {
+            flex: 1 1 200px;
+            background: #f5f9f5;
+            border: 3px solid #c6a15b;
+            border-radius: 50px;
+            padding: 15px 25px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            transition: 0.2s;
+            color: #1e4a2b;
+        }
+
+        .opcao:hover {
+            background: #daa520;
+            color: #0a2f1a;
+            transform: scale(1.02);
+        }
+
+        .opcao.selected {
+            background: #b8860b;
+            color: white;
+            border-color: #ffd700;
+            box-shadow: 0 0 0 3px #ffd700;
+        }
+
+        .resultado-area {
+            background: #0a3b2e;
+            color: #ffecb3;
+            padding: 30px;
+            border-radius: 30px;
+            margin-top: 30px;
+            text-align: center;
+            border: 3px solid #daa520;
+        }
+
+        .resultado-titulo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .resultado-desc {
+            font-size: 1.3rem;
+            line-height: 1.6;
+        }
+
+        .reset-btn {
+            background: #ffd700;
+            color: #0a2f1a;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            border: 2px solid #b8860b;
+        }
+
+        .reset-btn:hover {
+            background: #f0e68c;
         }
     </style>
 </head>
@@ -273,12 +371,13 @@
         <div class="subtitulo">★ FORMAÇÃO MILITAR E CIVIL ★</div>
     </div>
 
-    <!-- ABAS via radio -->
+    <!-- ABAS via radio (6 abas, incluindo teste) -->
     <input type="radio" name="aba" id="tab1" checked hidden>
     <input type="radio" name="aba" id="tab2" hidden>
     <input type="radio" name="aba" id="tab3" hidden>
     <input type="radio" name="aba" id="tab4" hidden>
     <input type="radio" name="aba" id="tab5" hidden>
+    <input type="radio" name="aba" id="tab6" hidden>
 
     <div class="tab-container">
         <label for="tab1" class="tab">⚡ missão</label>
@@ -286,6 +385,7 @@
         <label for="tab3" class="tab">📈 notas de corte</label>
         <label for="tab4" class="tab">🔧 engenharias</label>
         <label for="tab5" class="tab">✈️ carreira</label>
+        <label for="tab6" class="tab">🧭 teste vocacional</label>
     </div>
 
     <div class="contents">
@@ -392,6 +492,16 @@
             <a href="#" class="btn-militar">📋 simule sua carreira</a>
             <p style="margin-top: 20px;">✧ Cerca de 40 vagas anuais são destinadas à carreira militar (engenheiros). Concorrência interna no ITA.</p>
         </div>
+
+        <!-- ABA 6 – Teste Vocacional (novo) -->
+        <div class="tab-content" id="content6">
+            <h3>🧭 TESTE DE VOCAÇÃO MILITAR</h3>
+            <p style="margin-bottom: 30px;">Descubra qual área do ITA mais combina com seu perfil. Responda às perguntas abaixo:</p>
+            
+            <div class="teste-container" id="testeContainer">
+                <!-- Perguntas serão inseridas via JavaScript -->
+            </div>
+        </div>
     </div>
 
     <!-- rodapé militar -->
@@ -401,7 +511,139 @@
         <p> São José dos Campos/SP · Comando da Aeronáutica</p>
     </div>
 
-</div> <!-- fecha card -->
+</div>
+
+<script>
+    // Teste vocacional interativo
+    const perguntas = [
+        {
+            pergunta: "O que mais te atrai em uma carreira?",
+            opcoes: [
+                { texto: "Projetar aeronaves e sistemas de voo", area: "Aeronáutica" },
+                { texto: "Trabalhar com circuitos, radares e comunicação", area: "Eletrônica" },
+                { texto: "Desenvolver softwares e sistemas de defesa", area: "Computação" },
+                { texto: "Criar máquinas e sistemas mecânicos", area: "Mecânica" }
+            ]
+        },
+        {
+            pergunta: "Qual ambiente de trabalho você prefere?",
+            opcoes: [
+                { texto: "Hangares e pistas de pouso", area: "Aeronáutica" },
+                { texto: "Laboratórios de eletrônica e salas limpas", area: "Eletrônica" },
+                { texto: "Centros de comando e controle", area: "Computação" },
+                { texto: "Oficinas e indústria pesada", area: "Mecânica" }
+            ]
+        },
+        {
+            pergunta: "Qual dessas atividades te motiva mais?",
+            opcoes: [
+                { texto: "Projetar asas e fuselagens", area: "Aeronáutica" },
+                { texto: "Desenvolver sistemas de radar e guerra eletrônica", area: "Eletrônica" },
+                { texto: "Criar algoritmos de inteligência artificial", area: "Computação" },
+                { texto: "Projetar turbinas e motores", area: "Mecânica" }
+            ]
+        },
+        {
+            pergunta: "Qual seu estilo de liderança?",
+            opcoes: [
+                { texto: "Estratégico, focado em missões aéreas", area: "Aeronáutica" },
+                { texto: "Técnico, focado em inovação tecnológica", area: "Eletrônica" },
+                { texto: "Analítico, focado em dados e sistemas", area: "Computação" },
+                { texto: "Prático, focado em execução e manutenção", area: "Mecânica" }
+            ]
+        }
+    ];
+
+    let respostas = [];
+    let testeFinalizado = false;
+
+    function renderizarTeste() {
+        const container = document.getElementById('testeContainer');
+        if (!container) return;
+
+        let html = '';
+        
+        if (!testeFinalizado) {
+            perguntas.forEach((p, index) => {
+                html += `
+                    <div class="pergunta" id="pergunta-${index}">
+                        <h4>${p.pergunta}</h4>
+                        <div class="opcoes">
+                `;
+                
+                p.opcoes.forEach((opcao, oIndex) => {
+                    const selectedClass = respostas[index] === opcao.area ? 'selected' : '';
+                    html += `
+                        <div class="opcao ${selectedClass}" onclick="selecionarResposta(${index}, '${opcao.area}')">
+                            ${opcao.texto}
+                        </div>
+                    `;
+                });
+                
+                html += `</div></div>`;
+            });
+
+            html += `
+                <div style="text-align: center;">
+                    <button class="btn-militar" onclick="calcularResultado()">VER RESULTADO</button>
+                </div>
+            `;
+        } else {
+            // Calcular resultado
+            const contagem = {};
+            respostas.forEach(area => {
+                contagem[area] = (contagem[area] || 0) + 1;
+            });
+
+            let areaPrincipal = Object.keys(contagem).reduce((a, b) => contagem[a] > contagem[b] ? a : b, "Aeronáutica");
+            
+            const descricoes = {
+                "Aeronáutica": "Você tem perfil para projetar o futuro da aviação! Sua vocação é para a Engenharia Aeronáutica, trabalhando com aerodinâmica, estruturas e propulsão.",
+                "Eletrônica": "Sua mente brilha com circuitos e sistemas! A Engenharia Eletrônica é sua área, desenvolvendo radares, comunicação e guerra eletrônica.",
+                "Computação": "Você é um estrategista digital! A Engenharia de Computação te levará a criar sistemas de defesa, IA e simulações de voo.",
+                "Mecânica": "Sua paixão é por máquinas e motores! A Engenharia Mecânica é ideal para projetar turbinas, blindados e sistemas mecânicos."
+            };
+
+            html = `
+                <div class="resultado-area">
+                    <div class="resultado-titulo">🎯 SUA VOCAÇÃO: ${areaPrincipal}</div>
+                    <div class="resultado-desc">${descricoes[areaPrincipal]}</div>
+                    <p style="margin-top: 20px;">Baseado em suas respostas, você se identifica com a área de <strong>${areaPrincipal}</strong>.</p>
+                    <p>Consulte as abas de engenharia e carreira para mais informações!</p>
+                    <button class="reset-btn" onclick="reiniciarTeste()">FAZER NOVAMENTE</button>
+                </div>
+            `;
+        }
+
+        container.innerHTML = html;
+    }
+
+    function selecionarResposta(perguntaIndex, area) {
+        respostas[perguntaIndex] = area;
+        renderizarTeste();
+    }
+
+    function calcularResultado() {
+        // Verificar se todas as perguntas foram respondidas
+        if (respostas.length < perguntas.length) {
+            alert('Por favor, responda todas as perguntas antes de ver o resultado!');
+            return;
+        }
+        testeFinalizado = true;
+        renderizarTeste();
+    }
+
+    function reiniciarTeste() {
+        respostas = [];
+        testeFinalizado = false;
+        renderizarTeste();
+    }
+
+    // Inicializar teste
+    window.onload = function() {
+        renderizarTeste();
+    };
+</script>
 
 </body>
 </html>
