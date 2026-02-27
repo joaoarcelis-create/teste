@@ -1,94 +1,416 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seminário Católico Tradicionalista</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Seminário Sacerdotal Vacantista · Priorado Dom Rodrigo Silva</title>
     <style>
-        body {
-            font-family: 'Times New Roman', Times, serif;
+        /* === CSS EMBUTIDO === */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
         }
-        header {
-            background-color: #001f3d;
-            color: white;
-            text-align: center;
-            padding: 50px 0;
-        }
-        header h1 {
-            font-size: 2.5em;
-        }
-        .main-content {
-            margin: 50px;
-            text-align: center;
-        }
-        .section {
-            margin: 40px 0;
-        }
-        .section h2 {
-            font-size: 2em;
-            color: #00284d;
-        }
-        .section img {
-            width: 80%;
-            max-width: 600px;
-            margin-top: 20px;
-        }
-        .section p {
-            font-size: 1.2em;
-            color: #333;
+
+        body {
+            background-color: #f2ede4;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #2e241f;
             line-height: 1.6;
         }
-        .footer {
-            background-color: #001f3d;
-            color: white;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 30px;
+            background-color: #fffcf8;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* cabeçalho */
+        .header {
             text-align: center;
-            padding: 20px 0;
-            font-size: 1em;
+            padding: 30px 0 20px;
+            border-bottom: 3px solid #b89b7b;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            color: #3f2e1e;
+            text-transform: uppercase;
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
+
+        .header h2 {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #7a5a3a;
+            font-weight: 300;
+            word-spacing: 4px;
+        }
+
+        .header .subhead {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: #9f7e5c;
+            border-top: 1px dashed #d4bea5;
+            padding-top: 15px;
+        }
+
+        /* seções genéricas */
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #4d3824;
+            border-left: 10px solid #b4885e;
+            padding-left: 20px;
+            margin-bottom: 30px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title small {
+            font-size: 1rem;
+            text-transform: none;
+            color: #9e7b5c;
+            letter-spacing: 0;
+            margin-left: 12px;
+            font-style: italic;
+        }
+
+        /* card do prior */
+        .prior-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            background: #fbf6ef;
+            border: 1px solid #e1cfba;
+            padding: 30px;
+            border-radius: 20px 8px 20px 8px;
+            box-shadow: 0 10px 20px rgba(96, 67, 48, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .prior-info {
+            flex: 2;
+            min-width: 260px;
+        }
+
+        .prior-info h3 {
+            font-size: 2rem;
+            color: #2b1b0f;
+            margin-bottom: 5px;
+        }
+
+        .prior-info .prior-title {
+            font-size: 1.3rem;
+            color: #aa7a4c;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #dccbba;
+            padding-bottom: 8px;
+        }
+
+        .prior-info p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .prior-sigil {
+            flex: 1;
+            min-width: 160px;
+            background: #e4d7c8;
+            border-radius: 50% 20% / 40% 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: #5f422b;
+            border: 4px double #b38b64;
+            padding: 20px;
+        }
+
+        /* formação em etapas */
+        .etapas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .etapa-item {
+            background: #fffbf5;
+            border: 1px solid #dac9b6;
+            padding: 25px 18px;
+            border-radius: 30px 8px 30px 8px;
+            transition: all 0.2s;
+        }
+
+        .etapa-item:hover {
+            transform: translateY(-6px);
+            border-color: #b39272;
+            box-shadow: 0 12px 18px -10px #8f735a;
+        }
+
+        .etapa-num {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e1cbb4;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .etapa-item h4 {
+            font-size: 1.6rem;
+            color: #4a3321;
+            border-bottom: 1px dotted #bda58b;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .etapa-item p {
+            color: #3f332a;
+            font-size: 0.98rem;
+        }
+
+        .etapa-item .citaçao {
+            font-style: italic;
+            color: #95785b;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            border-left: 3px solid #c7aa8b;
+            padding-left: 12px;
+        }
+
+        /* votos / carisma */
+        .votos-sacerdotais {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            background: #eee5d9;
+            padding: 25px;
+            border-radius: 50px 8px 50px 8px;
+            margin: 30px 0;
+        }
+
+        .voto {
+            flex: 1 1 180px;
+            background: #fff9f2;
+            border: 1px solid #cbb295;
+            text-align: center;
+            padding: 18px 10px;
+            border-radius: 30px 5px 30px 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #503f2e;
+        }
+
+        .voto span {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 8px;
+            color: #b3926c;
+        }
+
+        /* citação destaque */
+        .quote-block {
+            background: #e2d2bf;
+            padding: 25px 35px;
+            border-radius: 80px 0 80px 0;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #2f241b;
+            border: 1px solid #b29478;
+            box-shadow: inset 0 0 15px #dccbba;
+            text-align: center;
+        }
+
+        .quote-author {
+            margin-top: 12px;
+            font-style: normal;
+            font-weight: bold;
+            color: #624b34;
+            text-transform: uppercase;
+        }
+
+        /* lista de ordens */
+        .ordens-lista {
+            columns: 2 240px;
+            column-gap: 40px;
+            margin: 25px 0;
+        }
+
+        .ordem {
+            break-inside: avoid;
+            margin-bottom: 20px;
+            padding: 12px;
+            background: #faf3eb;
+            border-left: 6px solid #b99773;
+        }
+
+        .ordem strong {
+            font-size: 1.2rem;
+            color: #6f4f2f;
+            display: block;
+        }
+
+        /* rodapé */
+        .footer {
+            border-top: 3px double #b89b7b;
+            margin-top: 50px;
+            padding: 25px 0 15px;
+            text-align: center;
+            color: #866e54;
+            font-size: 0.95rem;
+        }
+
+        .footer .sede-vacante {
+            font-size: 1.2rem;
+            font-variant: small-caps;
+            letter-spacing: 3px;
+            color: #583f28;
+        }
+
+        /* responsividade */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <!-- cabeçalho com o tema SEDE VACANTISTA -->
+        <div class="header">
+            <h1>✠ SEDE VACANTISTA ✠</h1>
+            <h2>Seminário do Priorado Dom Rodrigo Silva</h2>
+            <div class="subhead">
+                “Sob a proteção de Nossa Senhora da Assunção” <br>
+                Formação sacerdotal segundo a perene fé católica
+            </div>
+        </div>
 
-<header>
-    <h1>Seminário Católico Tradicionalista</h1>
-    <p>Formação de Padres para Viver a Única Verdadeira Tradição</p>
-</header>
+        <!-- APRESENTAÇÃO DO PRIOR E DO SEMINÁRIO VACANTISTA -->
+        <section>
+            <div class="section-title">
+                Priorado Dom Rodrigo Silva <small> — superior e reitor</small>
+            </div>
+            <div class="prior-card">
+                <div class="prior-info">
+                    <h3>Dom Rodrigo Silva</h3>
+                    <div class="prior-title">Prior · Superior do Seminário</div>
+                    <p><strong>“Sucessor dos Apóstolos em tempos de sede vacante”</strong> — Dom Rodrigo Silva, ordenado segundo o rito antigo, assumiu a formação dos futuros sacerdotes com zelo pela Tradição. O priorado mantém a ligação com a cátedra de Pedro, mesmo reconhecendo o período de incerteza na Igreja. Seu lema: <em>“Restaurar tudo em Cristo”</em>.</p>
+                    <p>Como reitor, guia os seminaristas na disciplina dos antigos seminários, fiel ao magistério perene e às rubricas litúrgicas tradicionais. A comunidade do priorado vive em espírito de deserto e oração, preparando obreiros para a vinha do Senhor.</p>
+                </div>
+                <div class="prior-sigil">
+                    ⚜️<br> IHS
+                </div>
+            </div>
+        </section>
 
-<div class="main-content">
+        <!-- FORMAÇÕES SACERDOTAIS E ETAPAS -->
+        <section>
+            <div class="section-title">
+                Etapas da Formação Sacerdotal <small> segundo a fé católica</small>
+            </div>
+            <p style="margin-bottom: 25px; font-size: 1.1rem;">O seminário vacantista estruturado no <strong>Priorado Dom Rodrigo Silva</strong> segue as diretrizes clássicas da formação prescritas pelo Concílio de Trento e confirmadas pelos Papas até o meio do século XX. Cada fase é marcada por aprofundamento humano, espiritual, intelectual e pastoral.</p>
+            
+            <div class="etapas-grid">
+                <div class="etapa-item">
+                    <div class="etapa-num">I.</div>
+                    <h4>Propedêutico</h4>
+                    <p>Ano de introdução à vida de seminário. Os aspirantes (propedutas) mergulham na espiritualidade católica, na lectio divina e na disciplina latina. Acompanhamento espiritual individual e primeira tonsura ao final do ano.</p>
+                    <div class="citaçao">“Vinde após mim, e eu vos farei pescadores de homens.”</div>
+                </div>
+                <div class="etapa-item">
+                    <div class="etapa-num">II.</div>
+                    <h4>Filosófico</h4>
+                    <p>Triênio de estudos filosóficos (lógica, metafísica, ética, história da filosofia) segundo São Tomás de Aquino. Desenvolvimento das virtudes morais e conhecimento das ciências sagradas. Ministério de leitor e acólito.</p>
+                    <div class="citaçao">“Philosophia ancilla theologiae.”</div>
+                </div>
+                <div class="etapa-item">
+                    <div class="etapa-num">III.</div>
+                    <h4>Teológico</h4>
+                    <p>Quadriênio teológico: Teologia Dogmática, Moral, Bíblia, Patrística, Direito Canônico e Liturgia. Preparação imediata para as Ordens Sacras. Estudo do canto gregoriano e homilética. Exames “ad gradum”.</p>
+                    <div class="citaçao">“A teologia é a rainha das ciências.”</div>
+                </div>
+                <div class="etapa-item">
+                    <div class="etapa-num">IV.</div>
+                    <h4>Estágio Pastoral</h4>
+                    <p>Ano de prática paroquial supervisionada, inserido na realidade das comunidades tradicionais. Atividades catequéticas, assistência a obras de caridade e primeiras experiências com os sacramentos (diáconos).</p>
+                    <div class="citaçao">“Dai-lhes vós mesmos de comer.” (Mt 14,16)</div>
+                </div>
+            </div>
+        </section>
 
-    <section class="section">
-        <h2>Sobre o Seminário</h2>
-        <p>O nosso seminário é dedicado à formação de padres segundo os princípios da Igreja Católica Tradicionalista. Seguimos a verdadeira Tradição Apostólica, com a celebração da Missa Tridentina e a formação espiritual e teológica profunda, com um foco inabalável na preservação da fé ortodoxa.</p>
-        <img src="https://www.saiamodesta.com.br/img/blog/g/50-missa-tridentina.jpg" alt="Imagem do Seminário">
-    </section>
+        <!-- AS FORMAÇÕES SACERDOTAIS (VOTOS, ORDENS) -->
+        <section>
+            <div class="section-title">
+                Formações Sacerdotais <small>— Ordens e compromissos</small>
+            </div>
+            <div class="votos-sacerdotais">
+                <div class="voto"><span>✞</span>Oração quotidiana<br>Liturgia das Horas</div>
+                <div class="voto"><span>⚜️</span>Voto de Pobreza<br>“despojar-se”</div>
+                <div class="voto"><span>🕊️</span>Castidade<br>pelo Reino</div>
+                <div class="voto"><span>⚓</span>Obediência<br>ao Prior</div>
+            </div>
 
-    <section class="section">
-        <h2>Missão e Valores</h2>
-        <p>A nossa missão é formar sacerdotes que, com profunda devoção e zelo pastoral, possam transmitir aos fiéis a verdadeira doutrina da Igreja, em total fidelidade à Tradição de sempre. Acreditamos que a Missa Tridentina é a forma litúrgica mais adequada para vivenciar a plenitude da fé católica.</p>
-        <img src="missa_tridentina.jpg" alt="Missa Tridentina">
-    </section>
+            <div style="background: #f5ede2; padding: 20px; border-radius: 20px;">
+                <h3 style="color: #4f3a26; margin-bottom: 20px;">Graus da Ordem (Ordens Sacras) </h3>
+                <div class="ordens-lista">
+                    <div class="ordem"><strong>◈ Ostiário</strong> — porteiro, zelo pela casa de Deus.</div>
+                    <div class="ordem"><strong>◈ Leitor</strong> — proclamar a Palavra nas matinas.</div>
+                    <div class="ordem"><strong>◈ Exorcista</strong> — poder sobre os espíritos imundos.</div>
+                    <div class="ordem"><strong>◈ Acólito</strong> — servir ao altar e distribuir a Eucaristia.</div>
+                    <div class="ordem"><strong>◈ Subdiácono</strong> — auxiliar na Missa solene, epístola.</div>
+                    <div class="ordem"><strong>◈ Diácono</strong> — pregar, batizar, assistir matrimônios.</div>
+                    <div class="ordem"><strong>◈ Presbítero</strong> — consagrar, perdoar pecados, apascentar.</div>
+                </div>
+                <p style="margin-top: 15px; font-size: 0.95rem; color: #674f38;">* No Priorado Dom Rodrigo Silva, as ordenações seguem o Pontifical Romano de 1962, conferindo-se os graus progressivamente mediante discernimento do prior.</p>
+            </div>
+        </section>
 
-    <section class="section">
-        <h2>O Reitor: Pe. João Eduardo</h2>
-        <p>O Reitor do nosso seminário, Pe. João Eduardo, é um sacerdote dedicado à formação sacerdotal tradicionalista, com grande experiência no ensino da Teologia e na formação espiritual dos seminaristas. Ele acredita firmemente na importância de preservar a fé verdadeira e a liturgia tradicional.</p>
-        <img src="pe_joao_eduardo.jpg" alt="Pe. João Eduardo">
-    </section>
+        <!-- ESPIRITUALIDADE DA SEDE VACANTISTA -->
+        <section>
+            <div class="quote-block">
+                “A Sé de Pedro está vacante? A Igreja é governada pelo próprio Cristo, Sumo Sacerdote. Enquanto isso, formamos sacerdotes segundo o Seu Coração.”
+                <div class="quote-author">— Dom Rodrigo Silva, homilia na abertura do ano formativo</div>
+            </div>
+        </section>
 
-    <section class="section">
-        <h2>Formação de Padres</h2>
-        <p>Nosso seminário oferece uma formação completa para os futuros padres, que inclui: filosofia, teologia, liturgia, espiritualidade e práticas de vida sacerdotal. A formação é personalizada e focada na vivência autêntica da vocação sacerdotal, com ênfase na celebração da Missa Tridentina e no compromisso com a Tradição da Igreja.</p>
-        <img src="formacao_padres.jpg" alt="Formação de Padres">
-    </section>
+        <!-- DESCRIÇÃO DO CARISMA VACANTISTA E FIDELIDADE -->
+        <section>
+            <div class="section-title">
+                Carisma vacantista <small>— fidelidade à Tradição</small>
+            </div>
+            <div style="display: flex; gap: 25px; flex-wrap: wrap;">
+                <div style="flex:2; min-width: 250px;">
+                    <p style="margin-bottom: 18px;">O <strong>Seminário Vacantista do Priorado Dom Rodrigo Silva</strong> acolhe o período de sede vacante como um tempo de provação e purificação. Mantém a integridade da fé católica, o depósito dos sacramentos, a disciplina tridentina e o afecto à Cátedra de Pedro, ainda que materialmente vaga. Os formandos estudam o Magistério perene, os documentos dos Papas anteriores a 1958 e a teologia dos Santos Padres. </p>
+                    <p>A formação visa ao sacerdote católico tal qual descrito no Código de Direito Canônico de 1917: piedoso, culto, obediente, desapegado. Dom Rodrigo Silva, sucessor dos apóstolos por ordenação válida, garante a sucessão apostólica e a validade dos sacramentos. O seminário funciona em regime de internato, com horário estruturado: oração, estudo, trabalho manual e convivência fraterna.</p>
+                </div>
+                <div style="flex:1; background: #dacbbc; padding: 25px; border-radius: 30px 0; color: #2a1c11;">
+                    <h4 style="font-size: 1.6rem; border-bottom: 2px solid #aa7f5a;">⚜️</h4>
+                    <p><em>“Vacante Sede, nada se inova.”</em> — máxima do direito. No priorado, isso significa preservar a liturgia latina, o canto gregoriano, a teologia tomista e a disciplina dos antigos seminários.</p>
+                </div>
+            </div>
+        </section>
 
-</div>
-
-<footer class="footer">
-    <p>&copy; 2026 Seminário Católico Tradicionalista. Todos os direitos reservados.</p>
-</footer>
-
+        <!-- rodapé com a afirmação vacantista -->
+        <div class="footer">
+            <div class="sede-vacante">SEDE ROMANA VACANTE · 2025</div>
+            <p style="margin: 12px 0 5px;">✠ Priorado Dom Rodrigo Silva — Seminário Sacerdotal Vacantista</p>
+            <p>formamos sacerdotes segundo o coração de Cristo, na fé católica apostólica romana<br>
+            “ora et labora” · em espírito de latria e fidelidade à Tradição</p>
+            <p style="margin-top: 15px;">© 2025 · Todos os direitos reservados à Tradição</p>
+        </div>
+    </div>
+    <!-- fim container -->
 </body>
 </html>
