@@ -3,647 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITA · Teste de Vocação Militar</title>
+    <title>Castelo de Magia e Bruxaria do Brasil · CMB</title>
     <style>
-        /* === CSS EMBUTIDO — ESTILO MILITAR/TÉCNICO === */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+            font-family: 'Cinzel', 'Georgia', 'Times New Roman', serif;
         }
 
         body {
-            background: linear-gradient(135deg, #1e3c2c 0%, #0a2f1a 100%);
+            background: #0a0c0e;
+            background-image: radial-gradient(circle at 30% 40%, #2a1e0f 0%, #030405 90%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 25px 15px;
+            padding: 30px 20px;
         }
 
-        /* card principal com identidade militar */
-        .ita-card {
-            max-width: 1200px;
+        /* Castelo principal */
+        .castelo {
+            max-width: 1300px;
             width: 100%;
-            background: #f0f4f0;
-            border-radius: 30px 30px 20px 20px;
-            box-shadow: 0 30px 40px rgba(0, 0, 0, 0.7), 0 0 0 4px #b8860b, 0 0 0 8px #3a5f3a;
+            background: #ecd8b9;
+            background: linear-gradient(145deg, #f3e5c7 0%, #dac29c 100%);
+            border-radius: 60px 60px 30px 30px;
+            box-shadow: 0 40px 70px rgba(0,0,0,0.8), 0 0 0 6px #9b7e5a, 0 0 0 12px #4d3a24;
             overflow: hidden;
-            transition: 0.2s;
+            border: 2px solid #b4915c;
         }
 
-        /* cabeçalho com brasão da aeronáutica */
-        .header-ita {
-            background: #0a3b2e;
-            background-image: repeating-linear-gradient(45deg, rgba(255,215,0,0.1) 0px, rgba(255,215,0,0.1) 10px, transparent 10px, transparent 20px);
-            padding: 25px 35px;
-            color: white;
-            border-bottom: 6px solid #daa520;
+        /* Cabeçalho mágico */
+        .torreao {
+            background: #2d2218;
+            background-image: repeating-linear-gradient(45deg, #5e4a33 0px, #5e4a33 3px, #3e2e1f 3px, #3e2e1f 8px);
+            padding: 25px 40px;
+            color: #ffecb3;
+            border-bottom: 8px solid #c9a45b;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 25px;
-            position: relative;
+            gap: 30px;
+            text-shadow: 3px 3px 0 #1a130b;
+            box-shadow: inset 0 -5px 20px #00000050;
         }
 
-        .brasao-militar {
-            font-size: 5rem;
-            line-height: 1;
-            filter: drop-shadow(4px 4px 0 #00000050);
-            background: rgba(0,0,0,0.3);
-            border-radius: 50%;
-            padding: 10px;
+        .brasao-magico {
+            font-size: 5.5rem;
+            filter: drop-shadow(0 0 10px #ffd966);
+            background: #1f160f;
+            border-radius: 50% 30% 50% 30%;
+            padding: 20px;
+            border: 5px solid #c9a45b;
         }
 
         .titulos h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
-            text-shadow: 4px 4px 0 #001a00;
+            letter-spacing: 4px;
+            color: #fadf9e;
         }
 
         .titulos h2 {
-            font-weight: 400;
-            font-size: 1.4rem;
-            color: #ffd966;
-            border-left: 6px solid #daa520;
-            padding-left: 18px;
-            margin-top: 8px;
+            font-size: 1.6rem;
+            color: #e6c27a;
+            border-left: 8px solid #b78b3f;
+            padding-left: 25px;
+            margin-top: 10px;
+            font-style: italic;
         }
 
-        .subtitulo {
+        .subtitulo-magico {
             margin-left: auto;
-            background: #00000060;
-            padding: 10px 25px;
+            background: #00000090;
+            padding: 12px 30px;
             border-radius: 60px;
-            font-weight: 600;
-            border: 2px solid #ffd966;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            border: 3px solid #e5b73b;
             backdrop-filter: blur(4px);
+            color: #ffd700;
+            font-weight: 600;
         }
 
-        /* sistema de abas (radio) */
-        .tab-container {
+        /* Abas - sistema com scroll */
+        .torre-abas {
             display: flex;
             flex-wrap: wrap;
-            background: #2d4f2d;
-            padding: 0 10px;
-            border-bottom: 3px solid #b68b40;
+            background: #3d3122;
+            padding: 0 15px;
+            border-bottom: 5px solid #b38b47;
+            gap: 5px;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: thin;
+            scrollbar-color: #b38b47 #1f160f;
         }
+        .torre-abas::-webkit-scrollbar { height: 8px; background: #1f160f; }
+        .torre-abas::-webkit-scrollbar-thumb { background: #b38b47; border-radius: 20px; }
 
-        .tab {
-            flex: 1 0 auto;
-            text-align: center;
-            padding: 18px 8px 12px 8px;
+        .aba-label {
+            display: inline-block;
+            padding: 18px 25px;
             font-weight: 700;
             font-size: 1.2rem;
-            color: #ffecb3;
+            color: #ffdd99;
             border-bottom: 5px solid transparent;
-            transition: 0.15s;
+            transition: 0.2s;
             cursor: pointer;
-            user-select: none;
-            background: #2d4f2d;
-            min-width: 130px;
+            background: #3d3122;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            border-radius: 30px 30px 0 0;
+            white-space: nowrap;
         }
 
-        .tab-container input[type="radio"] { display: none; }
+        input[type="radio"] { display: none; }
 
-        .tab-content { display: none; padding: 35px 35px 45px 35px; background: #f8fbf8; border-top: 2px solid #c6a15b; }
+        .conteudo-aba { display: none; padding: 45px 45px 60px; background: #fcf3e1; border-top: 3px solid #c9a45b; }
 
-        #tab1:checked ~ .tab-container .tab[for="tab1"],
-        #tab2:checked ~ .tab-container .tab[for="tab2"],
-        #tab3:checked ~ .tab-container .tab[for="tab3"],
-        #tab4:checked ~ .tab-container .tab[for="tab4"],
-        #tab5:checked ~ .tab-container .tab[for="tab5"],
-        #tab6:checked ~ .tab-container .tab[for="tab6"] {
-            border-bottom: 5px solid #ffb347;
-            background: #1f4a2c;
-            color: white;
-            font-weight: 800;
+        #tab1:checked ~ .torre-abas .aba-label[for="tab1"],
+        #tab2:checked ~ .torre-abas .aba-label[for="tab2"],
+        #tab3:checked ~ .torre-abas .aba-label[for="tab3"],
+        #tab4:checked ~ .torre-abas .aba-label[for="tab4"],
+        #tab5:checked ~ .torre-abas .aba-label[for="tab5"],
+        #tab6:checked ~ .torre-abas .aba-label[for="tab6"],
+        #tab7:checked ~ .torre-abas .aba-label[for="tab7"],
+        #tab8:checked ~ .torre-abas .aba-label[for="tab8"] {
+            border-bottom: 5px solid #f5c542;
+            background: #5a452b;
+            color: #fff2c6;
         }
 
-        #tab1:checked ~ .contents #content1,
-        #tab2:checked ~ .contents #content2,
-        #tab3:checked ~ .contents #content3,
-        #tab4:checked ~ .contents #content4,
-        #tab5:checked ~ .contents #content5,
-        #tab6:checked ~ .contents #content6 { display: block; }
+        #tab1:checked ~ .conteudos #conteudo1,
+        #tab2:checked ~ .conteudos #conteudo2,
+        #tab3:checked ~ .conteudos #conteudo3,
+        #tab4:checked ~ .conteudos #conteudo4,
+        #tab5:checked ~ .conteudos #conteudo5,
+        #tab6:checked ~ .conteudos #conteudo6,
+        #tab7:checked ~ .conteudos #conteudo7,
+        #tab8:checked ~ .conteudos #conteudo8 { display: block; }
 
-        /* estilo dos conteúdos */
-        .tab-content h3 {
-            font-size: 2.2rem;
-            color: #1e4a2b;
-            border-left: 14px solid #b8860b;
-            padding-left: 20px;
-            margin-bottom: 25px;
+        /* estilo mágico dos conteúdos */
+        .conteudo-aba h3 {
+            font-size: 2.6rem;
+            color: #3d280e;
+            border-left: 18px solid #b78b3f;
+            padding-left: 25px;
+            margin-bottom: 30px;
             font-weight: 700;
-            text-transform: uppercase;
+            text-shadow: 2px 2px 0 #dbb063;
         }
 
-        .tab-content h4 {
-            font-size: 1.5rem;
-            color: #2d5a2d;
-            margin: 25px 0 15px 0;
-            border-bottom: 2px solid #b68b40;
-            padding-bottom: 5px;
+        .conteudo-aba h4 {
+            font-size: 1.9rem;
+            color: #634d2b;
+            margin: 30px 0 15px;
+            border-bottom: 3px dashed #b78b3f;
         }
 
-        .grid-2 {
+        .grid-magico {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 25px 0;
         }
 
-        .info-card {
-            background: white;
-            border-radius: 28px;
-            padding: 22px;
-            box-shadow: 0 8px 20px rgba(0,40,0,0.2);
-            border: 2px solid #c6a15b;
+        .card-magico {
+            background: #fff6e6;
+            border-radius: 50px 20px 50px 20px;
+            padding: 25px;
+            box-shadow: 10px 15px 20px rgba(59, 38, 15, 0.4), inset -2px -2px 10px #bba16d;
+            border: 3px solid #b4915c;
         }
 
-        .info-card h5 {
-            font-size: 1.5rem;
-            color: #003153;
-            border-bottom: 2px dashed #c6a15b;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-        }
-
-        .nota-destaque {
-            background: #0f3b1f;
-            color: #ffd966;
-            padding: 20px 25px;
-            border-radius: 20px;
-            display: inline-block;
-            margin: 10px 0;
-            font-size: 2rem;
-            font-weight: 800;
-            border: 3px solid #daa520;
-            box-shadow: 0 0 0 3px #0f3b1f;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #f2ede4;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-            border: 2px solid #a77b42;
-        }
-
-        th {
-            background: #8b5a2b;
-            color: white;
-            font-weight: 700;
-            padding: 15px 10px;
-            font-size: 1.1rem;
-        }
-        td {
-            padding: 14px 12px;
-            border-bottom: 1px solid #d4b185;
-        }
-        tr:last-child td { border-bottom: none; }
-
-        .btn-militar {
-            background: #b8860b;
-            color: #0a2f1a;
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.3rem;
-            display: inline-block;
-            text-decoration: none;
-            margin-top: 25px;
-            border: 3px solid #f0e68c;
-            transition: 0.2s;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-        .btn-militar:hover {
-            background: #ffd700;
-            transform: scale(1.02);
-            box-shadow: 0 5px 0 #826011;
-        }
-
-        .footer-ita {
-            background: #1e3a2a;
-            color: #ffecb3;
-            padding: 20px 35px;
-            text-align: center;
-            border-top: 4px solid #d6a144;
-            font-size: 0.95rem;
-        }
-
-        .badge-militar {
-            background: #3a6b3a;
-            color: #ffd700;
-            padding: 6px 18px;
-            border-radius: 40px;
-            font-weight: 700;
-            border: 2px solid #daa520;
-            display: inline-block;
-            margin-right: 10px;
-        }
-
-        .mil-flag {
-            background: #0f3b1f;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            border-left: 10px solid #daa520;
-            margin: 20px 0;
-        }
-
-        /* Estilos do teste vocacional */
-        .teste-container {
-            background: #e8f0e8;
-            border-radius: 30px;
-            padding: 30px;
-            border: 3px solid #b8860b;
-        }
-
-        .pergunta {
-            background: white;
-            border-radius: 20px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .pergunta h4 {
-            color: #0a3b2e;
-            border-bottom: 2px solid #daa520;
+        .card-magico h5 {
+            font-size: 1.8rem;
+            color: #4f3a1f;
+            border-bottom: 2px solid #c9a14b;
             padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-
-        .opcoes {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .opcao {
-            flex: 1 1 200px;
-            background: #f5f9f5;
-            border: 3px solid #c6a15b;
-            border-radius: 50px;
-            padding: 15px 25px;
-            cursor: pointer;
-            text-align: center;
-            font-weight: 600;
-            transition: 0.2s;
-            color: #1e4a2b;
-        }
-
-        .opcao:hover {
-            background: #daa520;
-            color: #0a2f1a;
-            transform: scale(1.02);
-        }
-
-        .opcao.selected {
-            background: #b8860b;
-            color: white;
-            border-color: #ffd700;
-            box-shadow: 0 0 0 3px #ffd700;
-        }
-
-        .resultado-area {
-            background: #0a3b2e;
-            color: #ffecb3;
-            padding: 30px;
-            border-radius: 30px;
-            margin-top: 30px;
-            text-align: center;
-            border: 3px solid #daa520;
-        }
-
-        .resultado-titulo {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #ffd700;
             margin-bottom: 15px;
         }
 
-        .resultado-desc {
-            font-size: 1.3rem;
-            line-height: 1.6;
+        .casa-simbolo {
+            font-size: 3rem;
+            float: right;
         }
 
-        .reset-btn {
-            background: #ffd700;
-            color: #0a2f1a;
-            border: none;
-            padding: 12px 30px;
+        .professor-card {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            background: #e6d5b8;
+            border-radius: 40px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 3px solid #a77b42;
+        }
+
+        .prof-avatar {
+            font-size: 4rem;
+            background: #b4915c;
+            border-radius: 50%;
+            padding: 15px;
+        }
+
+        .mapa-local {
+            background: #bca87a;
+            padding: 30px;
             border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            cursor: pointer;
-            margin-top: 20px;
-            border: 2px solid #b8860b;
+            font-family: monospace;
+            font-size: 1.3rem;
+            border: 5px dotted #5e3b1a;
+            text-align: center;
         }
 
-        .reset-btn:hover {
-            background: #f0e68c;
+        .vilao-card {
+            background: #2d1f0f;
+            color: #eace9f;
+            padding: 30px;
+            border-radius: 80px 20px 80px 20px;
+            border: 6px solid #7a2e2e;
+            box-shadow: 0 0 30px #7a2e2e;
         }
     </style>
 </head>
 <body>
+<div class="castelo">
 
-<div class="ita-card">
-
-    <!-- cabeçalho com identidade militar -->
-    <div class="header-ita">
-        <div class="brasao-militar">⚔️✈️</div>
+    <!-- Torreão de entrada -->
+    <div class="torreao">
+        <div class="brasao-magico">🪄🐉⚡</div>
         <div class="titulos">
-            <h1>ITA / DCTA</h1>
-            <h2>Instituto Tecnológico de Aeronáutica · Comando da Aeronáutica</h2>
+            <h1>CASTELO DE MAGIA E BRUXARIA DO BRASIL</h1>
+            <h2>Instituto Superior de Artes Arcanas · Fundado em 1742</h2>
         </div>
-        <div class="subtitulo">★ FORMAÇÃO MILITAR E CIVIL ★</div>
+        <div class="subtitulo-magico">Sertão encantado · Pernambuco</div>
     </div>
 
-    <!-- ABAS via radio (6 abas, incluindo teste) -->
+    <!-- Abas (8) -->
     <input type="radio" name="aba" id="tab1" checked hidden>
     <input type="radio" name="aba" id="tab2" hidden>
     <input type="radio" name="aba" id="tab3" hidden>
     <input type="radio" name="aba" id="tab4" hidden>
     <input type="radio" name="aba" id="tab5" hidden>
     <input type="radio" name="aba" id="tab6" hidden>
+    <input type="radio" name="aba" id="tab7" hidden>
+    <input type="radio" name="aba" id="tab8" hidden>
 
-    <div class="tab-container">
-        <label for="tab1" class="tab">⚡ missão</label>
-        <label for="tab2" class="tab">🎖️ formação militar</label>
-        <label for="tab3" class="tab">📈 notas de corte</label>
-        <label for="tab4" class="tab">🔧 engenharias</label>
-        <label for="tab5" class="tab">✈️ carreira</label>
-        <label for="tab6" class="tab">🧭 teste vocacional</label>
+    <div class="torre-abas">
+        <label for="tab1" class="aba-label">📜 história</label>
+        <label for="tab2" class="aba-label">🏰 localização</label>
+        <label for="tab3" class="aba-label">🪄 as 4 casas</label>
+        <label for="tab4" class="aba-label">📚 formação & aulas</label>
+        <label for="tab5" class="aba-label">🧙 professores</label>
+        <label for="tab6" class="aba-label">⚡ matérias</label>
+        <label for="tab7" class="aba-label">👤 o vilão</label>
+        <label for="tab8" class="aba-label">🐉 lore & lendas</label>
     </div>
 
-    <div class="contents">
-        <!-- ABA 1 – Missão / visão geral militar -->
-        <div class="tab-content" id="content1">
-            <h3>⚔️ INSTITUTO MILITAR DE TECNOLOGIA</h3>
-            <div class="mil-flag">
-                <strong>Subordinação:</strong> Departamento de Ciência e Tecnologia Aeroespacial (DCTA) – Comando da Aeronáutica. Alunos do ITA podem ser <span style="color: #ffd700;">militares ou civis</span>, mas todos recebem formação em disciplina e valores castrenses.
+    <div class="conteudos">
+        <!-- ABA 1: HISTÓRIA COMPLETA -->
+        <div class="conteudo-aba" id="conteudo1">
+            <h3>📜 A FUNDAÇÃO DO CASTELO</h3>
+            <div class="card-magico" style="font-size: 1.2rem; line-height: 1.8;">
+                <p>Em meados do século XVIII, um grupo de bruxos portugueses, espanhóis e holandeses refugiados da Inquisição descobriu no coração do sertão pernambucano um local de imenso poder telúrico: a <strong>Fenda da Meia-lua</strong>, uma cratera mágica onde as linhas ley se cruzavam. Liderados pela feiticeira luso-brasileira <strong>Dona Guiomar de Ataíde</strong>, ergueram o Castelo sobre uma formação rochosa que flutua a 200 metros do chão, escondido por névoa perpétua e feitiços de desilusão.</p>
+                <p>Durante mais de 280 anos, o Castelo formou praticamente todas as grandes bruxas e bruxos da América do Sul. Seu lema é <em>"Scientia et Mysterium"</em> (Conhecimento e Mistério). A escola resistiu à guerra paraguaia, à ditadura (protegendo alunos perseguidos) e hoje é uma das sete escolas de magia reconhecidas pela Confederação Internacional de Bruxaria.</p>
+                <p>A arquitetura é uma mistura de barroco mineiro, torres mouriscas e ruínas astecas trazidas magicamente. Diz-se que nas noites de lua cheia, as estátuas dos fundadores sussurram profecias.</p>
             </div>
-            <div class="grid-2">
-                <div class="info-card">
-                    <h5>🎯 missão do ITA</h5>
-                    <p>"Formar recursos humanos de alto nível para a indústria, centros de pesquisa e Forças Armadas, com ênfase em engenharia e tecnologia aeroespacial, sob rigor militar."</p>
-                    <p><span class="badge-militar">desde 1950</span> mais de 7.000 engenheiros formados, muitos na ativa da Aeronáutica.</p>
-                </div>
-                <div class="info-card">
-                    <h5>⚙️ vínculo militar</h5>
-                    <p>Os alunos que ingressam como <strong>militares</strong> (via concurso da Academia da Força Aérea – AFA) ou os civis que optam pelo estágio militar ao final do curso. O ITA oferece a possibilidade de incorporação como Oficial Engenheiro.</p>
-                    <p>📌 Cerca de 30% dos formandos escolhem a carreira militar.</p>
-                </div>
+            <h4>⏳ Linha do tempo</h4>
+            <ul style="columns:2; list-style: none; background: #efdbb5; padding: 30px; border-radius: 60px;">
+                <li>🔹 <strong>1742</strong> · Fundação por Guiomar de Ataíde</li>
+                <li>🔹 <strong>1798</strong> · Construção da Biblioteca do Tempo</li>
+                <li>🔹 <strong>1822</strong> · Alunos brasileiros e portugueses duelam simbolicamente pela Independência</li>
+                <li>🔹 <strong>1889</strong> · Criação das quatro casas</li>
+                <li>🔹 <strong>1932</strong> · O grande ataque do bruxo Tenebroso (derrotado)</li>
+                <li>🔹 <strong>2025</strong> · 283 anos de magia ininterrupta</li>
+            </ul>
+        </div>
+
+        <!-- ABA 2: LOCALIZAÇÃO DETALHADA -->
+        <div class="conteudo-aba" id="conteudo2">
+            <h3>🏰 ONDE FICA O CASTELO?</h3>
+            <div class="mapa-local">
+                <p>📍 <strong>Sertão de Pernambuco</strong>, município de Triunfo, a 1200m de altitude.</p>
+                <p>🌫️ O castelo é invisível aos trouxas (chamados de "eternos") devido à névoa encantada. Acesso apenas por chave de portal ou pela Estrada dos Ventos, uma ponte de pedra que só aparece para quem carrega o medalhão da escola.</p>
+                <p>🗺️ Coordenadas mágicas: 7°50' S 38°06' W (linha ley cruzada).</p>
+                <p>🌿 Ao redor: a <strong>Floresta da Neblina</strong> (criaturas mágicas nativas: caiporas, curupiras e lagartos-de-fogo).</p>
             </div>
-            <div style="background: #ced9ce; padding: 20px; border-radius: 20px;">
-                <span class="badge-militar">destaque</span> O ITA é o único instituto do país onde <strong>todos os alunos usam uniforme</strong> e participam de formatura, ordem unida e treinamento físico, independente de serem civis ou militares.
+            <div class="grid-magico">
+                <div class="card-magico">
+                    <h5>🔮 Pontos de interesse</h5>
+                    <ul>
+                        <li>✦ Lago da Visão (onde os alunos fazem provas de adivinhação)</li>
+                        <li>✦ Gruta dos Cristais (mineração de pedras mágicas)</li>
+                        <li>✦ Torre do Sino (badaladas encantadas anunciam as horas)</li>
+                    </ul>
+                </div>
+                <div class="card-magico">
+                    <h5>🚪 Como chegar</h5>
+                    <p>• A partir do Rio de Janeiro: chave de portal na Pedra do Sal</p>
+                    <p>• De Recife: aparata-se na feira de Caruaru (segunda sexta do mês)</p>
+                </div>
             </div>
         </div>
 
-        <!-- ABA 2 – Formação militar detalhada -->
-        <div class="tab-content" id="content2">
-            <h3>🎖️ FORMAÇÃO MILITAR NO ITA</h3>
-            <p style="margin-bottom: 20px;">A formação no ITA combina o currículo de engenharia com a <strong>disciplina militar</strong>. Os alunos são organizados no <strong>Corpo de Alunos do ITA</strong>, dividido em Esquadrilhas, sob comando de oficiais da Aeronáutica.</p>
-            
-            <h4>📌 etapas da formação castrense</h4>
-            <div class="grid-2">
-                <div class="info-card">
-                    <h5>1º ano – adaptação</h5>
-                    <p>Curso básico militar: ordem unida, hierarquia, uso de uniforme, treinamento físico (TPM). Indução à vida militar.</p>
+        <!-- ABA 3: AS QUATRO CASAS -->
+        <div class="conteudo-aba" id="conteudo3">
+            <h3>🪄 AS QUATRO CASAS DO BRASIL</h3>
+            <div class="grid-magico">
+                <div class="card-magico">
+                    <span class="casa-simbolo">🐆</span>
+                    <h5>JAGUATIRICA · Casa da Coragem</h5>
+                    <p><strong>Fundação:</strong> 1889 por Bárbara de Alencar. <br> <strong>Elemento:</strong> Fogo. <br> <strong>Características:</strong> alunos audazes, guerreiros, protetores. Cores: amarelo e preto. Símbolo: onça-pintada. Local: Sala das Chamas.</p>
                 </div>
-                <div class="info-card">
-                    <h5>2º e 3º ano – consolidação</h5>
-                    <p>Liderança de esquadrilhas, participação em cerimônias, acampamentos militares e estágio no DCTA.</p>
+                <div class="card-magico">
+                    <span class="casa-simbolo">🌿</span>
+                    <h5>IPÊ · Casa da Sabedoria</h5>
+                    <p><strong>Fundação:</strong> 1889 por Frei Caneca (bruxo). <br> <strong>Elemento:</strong> Terra. <br> <strong>Características:</strong> estudiosos, herbalistas, sábios. Cores: roxo e verde. Símbolo: flor de ipê. Local: Biblioteca dos Ventos.</p>
                 </div>
-                <div class="info-card">
-                    <h5>4º e 5º ano – estagiário</h5>
-                    <p>Opcional: estágio militar supervisionado em organizações da Aeronáutica. Possibilidade de incorporação.</p>
+                <div class="card-magico">
+                    <span class="casa-simbolo">🌊</span>
+                    <h5>BOTO · Casa da Intuição</h5>
+                    <p><strong>Fundação:</strong> 1889 por Iemanjá (entidade). <br> <strong>Elemento:</strong> Água. <br> <strong>Características:</strong> misteriosos, metamorfos, visionários. Cores: azul e branco. Símbolo: boto-cor-de-rosa. Local: Gruta Submersa.</p>
+                </div>
+                <div class="card-magico">
+                    <span class="casa-simbolo">🌪️</span>
+                    <h5>SACI · Casa da Astúcia</h5>
+                    <p><strong>Fundação:</strong> 1889 por Zé do Pito (bruxo trapaceiro). <br> <strong>Elemento:</strong> Ar. <br> <strong>Características:</strong> espertos, inventores, tricksters. Cores: vermelho e cinza. Símbolo: Saci com gorro. Local: Torre dos Redemoinhos.</p>
                 </div>
             </div>
+            <p>Na Cerimônia de Escolha, os alunos são selecionados pelo <strong>Chapéu Falante de Tupi</strong> (um cocar encantado) que grita o nome da casa.</p>
+        </div>
 
-            <h4>🎓 carreira como oficial engenheiro</h4>
-            <table>
-                <tr><th>patente inicial</th><th>curso complementar</th><th>tempo de serviço</th></tr>
-                <tr><td>1º Tenente Engenheiro</td><td>Estágio de Adaptação ao Oficialato (EAO) – 6 meses na AFA</td><td>mínimo 5 anos (podendo chegar a General)</td></tr>
-                <tr><td>vínculo</td><td>regime militar</td><td>benefícios: soldo, moradia, assistência médica</td></tr>
+        <!-- ABA 4: FORMAÇÃO E AULAS -->
+        <div class="conteudo-aba" id="conteudo4">
+            <h3>📚 FORMAÇÃO EM SETE ANOS</h3>
+            <p>Os bruxos ingressam aos 11 anos e estudam até os 18. Grade dividida em Ciclo Básico (3 anos) e Avançado (4 anos) com especialização.</p>
+            <div class="grid-magico">
+                <div class="card-magico">
+                    <h5>🌱 1º ao 3º ano</h5>
+                    <p>Fundamentos: Transfiguração, Poções, Defesa, Herbologia, História da Magia, Astronomia, Voo (vassouras e tapetes voadores).</p>
+                </div>
+                <div class="card-magico">
+                    <h5>⚡ 4º ao 7º ano</h5>
+                    <p>Níveis avançados, incluindo Metamorfose, Alquimia, Adivinhação, Cura Mágica, Magia das Ervas e Línguas Antigas (Tupi, Iorubá, Latim).</p>
+                </div>
+            </div>
+            <h4>🗓️ Horário típico</h4>
+            <table style="width:100%; background:#e3cfaa; border-radius:30px; padding:20px;">
+                <tr><th>Manhã</th><th>Tarde</th><th>Noite (observatório)</th></tr>
+                <tr><td>Poções · Herbologia</td><td>Defesa · Transfiguração</td><td>Astronomia / Estudo livre</td></tr>
             </table>
-            <p style="margin-top: 15px;">✧ Os engenheiros militares atuam em projetos estratégicos (caças, satélites, mísseis) e na infraestrutura aeronáutica.</p>
         </div>
 
-        <!-- ABA 3 – Notas de corte (com contexto militar) -->
-        <div class="tab-content" id="content3">
-            <h3>📊 NOTAS DE CORTE · VESTIBULAR ITA</h3>
-            <p>Concorrência altíssima. A nota final (0–100) considera pesos: Matemática 3, Física 3, Química 2, Português/Inglês 2.</p>
-            <div class="nota-destaque">corte médio 2024: 78,4 / 100</div>
-            <table>
-                <tr><th>curso</th><th>2024</th><th>2023</th><th>2022</th></tr>
-                <tr><td>Aeronáutica</td><td>84,9</td><td>83,2</td><td>82,0</td></tr>
-                <tr><td>Eletrônica</td><td>82,8</td><td>81,7</td><td>80,5</td></tr>
-                <tr><td>Computação</td><td>81,2</td><td>80,1</td><td>79,0</td></tr>
-                <tr><td>Mecânica</td><td>79,8</td><td>78,6</td><td>77,4</td></tr>
-                <tr><td>Produção</td><td>77,5</td><td>76,3</td><td>75,6</td></tr>
-                <tr><td>Civil-Aeronáutica</td><td>76,2</td><td>74,9</td><td>74,1</td></tr>
-                <tr><td>Física (bacharel)</td><td>73,4</td><td>72,0</td><td>71,0</td></tr>
-            </table>
-            <p class="mil-flag" style="margin-top:20px;">📌 candidatos que desejam a carreira militar devem, além do vestibular do ITA, passar em inspeção de saúde e exame físico (corrida, flexão, abdominal) — médias eliminatórias.</p>
-        </div>
-
-        <!-- ABA 4 – Engenharias com viés militar -->
-        <div class="tab-content" id="content4">
-            <h3>🔧 ENGENHARIAS E APLICAÇÕES MILITARES</h3>
-            <div class="grid-2">
-                <div class="info-card"><strong>Aeronáutica:</strong> Projeto de caças (Gripen), VANTs, foguetes. <span class="badge-militar">DCTA</span></div>
-                <div class="info-card"><strong>Eletrônica:</strong> Radar, guerra eletrônica, comunicação tática.</div>
-                <div class="info-card"><strong>Mecânica:</strong> Blindados, turbinas, munições.</div>
-                <div class="info-card"><strong>Computação:</strong> Ciberdefesa, simulação de voo, IA.</div>
-                <div class="info-card"><strong>Produção:</strong> Logística militar, gestão de suprimentos.</div>
-                <div class="info-card"><strong>Civil-Aeronáutica:</strong> Construção de bases aéreas, pistas.</div>
+        <!-- ABA 5: PROFESSORES (12) -->
+        <div class="conteudo-aba" id="conteudo5">
+            <h3>🧙 CORPO DOCENTE (12 MESTRES)</h3>
+            <div class="grid-magico">
+                <div class="professor-card"><span class="prof-avatar">🧪</span> <div><strong>Prof. Severo Alquimista</strong> – Poções (750 anos, múmia viva)</div></div>
+                <div class="professor-card"><span class="prof-avatar">🗡️</span> <div><strong>Profa. Joana D'Arc</strong> – Defesa (ex-corvinal francesa)</div></div>
+                <div class="professor-card"><span class="prof-avatar">🌿</span> <div><strong>Mãe Cátia de Xangô</strong> – Herbologia (sacerdotisa)</div></div>
+                <div class="professor-card"><span class="prof-avatar">📜</span> <div><strong>Prof. Bartolomeu</strong> – História da Magia (fantasma)</div></div>
+                <div class="professor-card"><span class="prof-avatar">🔮</span> <div><strong>Prof. Elias</strong> – Adivinhação (vidente cego)</div></div>
+                <div class="professor-card"><span class="prof-avatar">🪶</span> <div><strong>Profa. Yara</strong> – Metamorfose (sereia)</div></div>
+                <div class="professor-card"><span class="prof-avatar">⚡</span> <div><strong>Prof. Tupãzinho</strong> – Feitiços (índio encantado)</div></div>
+                <div class="professor-card"><span class="prof-avatar">🔭</span> <div><strong>Prof. Galileu</strong> – Astronomia (telescópio falante)</div></div>
+                <div class="professor-card"><span class="prof-avatar">🧹</span> <div><strong>Profa. Brisa</strong> – Voo (campeã de quadribol)</div></div>
+                <div class="professor-card"><span class="prof-avatar">⚗️</span> <div><strong>Prof. Van Helsing</strong> – Magia das Ervas (transilvano)</div></div>
+                <div class="professor-card"><span class="prof-avatar">📖</span> <div><strong>Profa. Minimá</strong> – Runas Antigas (elfa)</div></div>
+                <div class="professor-card"><span class="prof-avatar">💀</span> <div><strong>Prof. Morte</strong> – Cura Mágica (licantropo curado)</div></div>
             </div>
-            <p style="margin-top:20px;">Os projetos de conclusão de curso frequentemente atendem demandas da Aeronáutica (ex.: desenvolvimento de paraquedas, sensores, aeronaves não tripuladas).</p>
         </div>
 
-        <!-- ABA 5 – Carreira militar após ITA -->
-        <div class="tab-content" id="content5">
-            <h3>✈️ CARREIRA MILITAR · OFICIAL ENGENHEIRO</h3>
-            <div style="background: #e5dac8; padding: 25px; border-radius: 30px;">
-                <h4 style="color:#0a3b2e;">Etapas para ser Oficial Engenheiro</h4>
-                <ol style="margin-left: 25px; line-height: 2.4; font-size: 1.1rem;">
-                    <li>Passar no vestibular do ITA (curso de engenharia).</li>
-                    <li>Durante a graduação, manifestar interesse na carreira militar (até o 4º ano).</li>
-                    <li>Realizar o Estágio de Adaptação ao Oficialato (EAO) na Academia da Força Aérea (Pirassununga).</li>
-                    <li>Ser declarado <strong>1º Tenente Engenheiro</strong> e servir em organizações militares (CTA, indústria bélica, etc.).</li>
-                </ol>
-                <div style="margin-top: 25px; background: #0a3b2e; color: #ffd966; padding: 20px; border-radius: 20px;">
-                    <span style="font-size:2rem;">⚔️</span> benefícios: soldo inicial ~R$ 12.000, estabilidade, progressão até General-de-Brigada, missões no exterior.
-                </div>
+        <!-- ABA 6: MATÉRIAS DETALHADAS -->
+        <div class="conteudo-aba" id="conteudo6">
+            <h3>⚡ DISCIPLINAS (16 NO TOTAL)</h3>
+            <ul style="columns:3; background: #eedbba; padding: 30px; border-radius:50px;">
+                <li>✦ Transfiguração</li><li>✦ Poções</li><li>✦ Defesa contra Trevas</li>
+                <li>✦ Herbologia Brasileira</li><li>✦ História da Magia</li><li>✦ Adivinhação</li>
+                <li>✦ Metamorfose</li><li>✦ Alquimia</li><li>✦ Trato com Criaturas</li>
+                <li>✦ Voo (vassoura/tapete)</li><li>✦ Runas Antigas</li><li>✦ Cura Mágica</li>
+                <li>✦ Magia Elemental</li><li>✦ Encantamentos</li><li>✦ Línguas Mágicas</li>
+                <li>✦ Artes das Sombras (optativa)</li>
+            </ul>
+        </div>
+
+        <!-- ABA 7: O VILÃO -->
+        <div class="conteudo-aba" id="conteudo7">
+            <h3>👤 O GRANDE VILÃO: TENEBROSO MORCEGO</h3>
+            <div class="vilao-card">
+                <div style="font-size:5rem; text-align:center;">🦇🔥</div>
+                <h4 style="color:#e6b422;">Lord Tenebroso (Hermógenes da Silva)</h4>
+                <p>Ex-aluno da Casa Saci (expulso em 1930). Nascido em Olinda, descobriu um pacto com entidades sombrias do sertão. Seu objetivo: dominar o Castelo e escravizar trouxas usando a Magia do Sangue. Comanda um exército de <strong>sombras amaldiçoadas</strong> e <strong>urutus voadores</strong>. Em 1932, quase destruiu a ala leste. Dizem que ele possui um horcrux: seu chapéu de couro encantado.</p>
+                <p>Sua cicatriz: uma marca de queimadura em forma de morcego na testa. Sua varinha é feita de osso de carcará. Atualmente tenta infiltrar um discípulo no castelo.</p>
             </div>
-            <a href="#" class="btn-militar">📋 simule sua carreira</a>
-            <p style="margin-top: 20px;">✧ Cerca de 40 vagas anuais são destinadas à carreira militar (engenheiros). Concorrência interna no ITA.</p>
         </div>
 
-        <!-- ABA 6 – Teste Vocacional (novo) -->
-        <div class="tab-content" id="content6">
-            <h3>🧭 TESTE DE VOCAÇÃO MILITAR</h3>
-            <p style="margin-bottom: 30px;">Descubra qual área do ITA mais combina com seu perfil. Responda às perguntas abaixo:</p>
-            
-            <div class="teste-container" id="testeContainer">
-                <!-- Perguntas serão inseridas via JavaScript -->
+        <!-- ABA 8: LORE & LENDAS -->
+        <div class="conteudo-aba" id="conteudo8">
+            <h3>🐉 LENDAS DO CASTELO</h3>
+            <div class="grid-magico">
+                <div class="card-magico">🔹 <strong>A Mula-sem-cabeça do porão:</strong> assombra os calouros, mas é inofensiva.</div>
+                <div class="card-magico">🔹 <strong>O boto que vira aluno:</strong> todo ano um boto seduz alguém no baile.</div>
+                <div class="card-magico">🔹 <strong>Biblioteca do Tempo:</strong> livros que contam o futuro e o passado simultaneamente.</div>
+                <div class="card-magico">🔹 <strong>A varinha de Guiomar:</strong> escondida em algum lugar, diz-se que dá poder absoluto.</div>
             </div>
         </div>
     </div>
 
-    <!-- rodapé militar -->
-    <div class="footer-ita">
-        <p>© ITA – Instituto Tecnológico de Aeronáutica · DCTA · Força Aérea Brasileira</p>
-        <p style="margin-top: 5px;">“Asas que protegem o céu, engenheiros que constroem o futuro”</p>
-        <p> São José dos Campos/SP · Comando da Aeronáutica</p>
+    <!-- Rodapé encantado -->
+    <div style="background:#2d2218; color:#dbb066; text-align:center; padding:25px; border-top:6px solid #b78b3f;">
+        <p>© 1742-2025 · Castelo de Magia e Bruxaria do Brasil · Sertão de Pernambuco</p>
+        <p style="font-size:0.9rem; opacity:0.8;">“Scientia et Mysterium” — O Brasil tem magia própria</p>
     </div>
-
 </div>
-
-<script>
-    // Teste vocacional interativo
-    const perguntas = [
-        {
-            pergunta: "O que mais te atrai em uma carreira?",
-            opcoes: [
-                { texto: "Projetar aeronaves e sistemas de voo", area: "Aeronáutica" },
-                { texto: "Trabalhar com circuitos, radares e comunicação", area: "Eletrônica" },
-                { texto: "Desenvolver softwares e sistemas de defesa", area: "Computação" },
-                { texto: "Criar máquinas e sistemas mecânicos", area: "Mecânica" }
-            ]
-        },
-        {
-            pergunta: "Qual ambiente de trabalho você prefere?",
-            opcoes: [
-                { texto: "Hangares e pistas de pouso", area: "Aeronáutica" },
-                { texto: "Laboratórios de eletrônica e salas limpas", area: "Eletrônica" },
-                { texto: "Centros de comando e controle", area: "Computação" },
-                { texto: "Oficinas e indústria pesada", area: "Mecânica" }
-            ]
-        },
-        {
-            pergunta: "Qual dessas atividades te motiva mais?",
-            opcoes: [
-                { texto: "Projetar asas e fuselagens", area: "Aeronáutica" },
-                { texto: "Desenvolver sistemas de radar e guerra eletrônica", area: "Eletrônica" },
-                { texto: "Criar algoritmos de inteligência artificial", area: "Computação" },
-                { texto: "Projetar turbinas e motores", area: "Mecânica" }
-            ]
-        },
-        {
-            pergunta: "Qual seu estilo de liderança?",
-            opcoes: [
-                { texto: "Estratégico, focado em missões aéreas", area: "Aeronáutica" },
-                { texto: "Técnico, focado em inovação tecnológica", area: "Eletrônica" },
-                { texto: "Analítico, focado em dados e sistemas", area: "Computação" },
-                { texto: "Prático, focado em execução e manutenção", area: "Mecânica" }
-            ]
-        }
-    ];
-
-    let respostas = [];
-    let testeFinalizado = false;
-
-    function renderizarTeste() {
-        const container = document.getElementById('testeContainer');
-        if (!container) return;
-
-        let html = '';
-        
-        if (!testeFinalizado) {
-            perguntas.forEach((p, index) => {
-                html += `
-                    <div class="pergunta" id="pergunta-${index}">
-                        <h4>${p.pergunta}</h4>
-                        <div class="opcoes">
-                `;
-                
-                p.opcoes.forEach((opcao, oIndex) => {
-                    const selectedClass = respostas[index] === opcao.area ? 'selected' : '';
-                    html += `
-                        <div class="opcao ${selectedClass}" onclick="selecionarResposta(${index}, '${opcao.area}')">
-                            ${opcao.texto}
-                        </div>
-                    `;
-                });
-                
-                html += `</div></div>`;
-            });
-
-            html += `
-                <div style="text-align: center;">
-                    <button class="btn-militar" onclick="calcularResultado()">VER RESULTADO</button>
-                </div>
-            `;
-        } else {
-            // Calcular resultado
-            const contagem = {};
-            respostas.forEach(area => {
-                contagem[area] = (contagem[area] || 0) + 1;
-            });
-
-            let areaPrincipal = Object.keys(contagem).reduce((a, b) => contagem[a] > contagem[b] ? a : b, "Aeronáutica");
-            
-            const descricoes = {
-                "Aeronáutica": "Você tem perfil para projetar o futuro da aviação! Sua vocação é para a Engenharia Aeronáutica, trabalhando com aerodinâmica, estruturas e propulsão.",
-                "Eletrônica": "Sua mente brilha com circuitos e sistemas! A Engenharia Eletrônica é sua área, desenvolvendo radares, comunicação e guerra eletrônica.",
-                "Computação": "Você é um estrategista digital! A Engenharia de Computação te levará a criar sistemas de defesa, IA e simulações de voo.",
-                "Mecânica": "Sua paixão é por máquinas e motores! A Engenharia Mecânica é ideal para projetar turbinas, blindados e sistemas mecânicos."
-            };
-
-            html = `
-                <div class="resultado-area">
-                    <div class="resultado-titulo">🎯 SUA VOCAÇÃO: ${areaPrincipal}</div>
-                    <div class="resultado-desc">${descricoes[areaPrincipal]}</div>
-                    <p style="margin-top: 20px;">Baseado em suas respostas, você se identifica com a área de <strong>${areaPrincipal}</strong>.</p>
-                    <p>Consulte as abas de engenharia e carreira para mais informações!</p>
-                    <button class="reset-btn" onclick="reiniciarTeste()">FAZER NOVAMENTE</button>
-                </div>
-            `;
-        }
-
-        container.innerHTML = html;
-    }
-
-    function selecionarResposta(perguntaIndex, area) {
-        respostas[perguntaIndex] = area;
-        renderizarTeste();
-    }
-
-    function calcularResultado() {
-        // Verificar se todas as perguntas foram respondidas
-        if (respostas.length < perguntas.length) {
-            alert('Por favor, responda todas as perguntas antes de ver o resultado!');
-            return;
-        }
-        testeFinalizado = true;
-        renderizarTeste();
-    }
-
-    function reiniciarTeste() {
-        respostas = [];
-        testeFinalizado = false;
-        renderizarTeste();
-    }
-
-    // Inicializar teste
-    window.onload = function() {
-        renderizarTeste();
-    };
-</script>
-
 </body>
 </html>
